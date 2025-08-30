@@ -1,14 +1,26 @@
 [build]
-  command = "npm run build"
+  command = "npm install && npm run build"
   publish = "dist"
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "20"
   NPM_VERSION = "10.2.4"
   NODE_ENV = "production"
+  NPM_FLAGS = "--legacy-peer-deps"
 
 # Handle client-side routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[dev]
+  command = "npm run dev"
+  port = 3000
+  publish = "dist"
+
+# Disable the Next.js plugin since we're using Vite
+[plugins]
+  [plugins.enable]
+    enabled = false
