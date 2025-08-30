@@ -1,17 +1,26 @@
+# Disable all plugins
+[plugins]
+  package = "@netlify/plugin-sitemap"
+  enabled = false
+
+[plugins]
+  package = "@netlify/plugin-nextjs"
+  enabled = false
+
 [build]
-  command = "chmod +x ./netlify-build.sh && ./netlify-build.sh"
+  command = "npm install && npm run build"
   publish = "dist"
   functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "20"
   NPM_VERSION = "10.2.4"
-  NODE_ENV = "development"  # Set to development to ensure devDependencies are installed
+  NODE_ENV = "development"
   NPM_FLAGS = "--legacy-peer-deps"
-  VITE = "true"  # This helps Vite detect it's in a build environment
-  CI = "false"   # Disable CI to prevent any CI-specific behavior
-  NODE_OPTIONS = "--max_old_space_size=4096"  # Increase memory limit for build
-  NPM_CONFIG_PRODUCTION = "false"  # Ensure devDependencies are installed
+  VITE = "true"
+  CI = "false"
+  NODE_OPTIONS = "--max_old_space_size=4096"
+  NPM_CONFIG_PRODUCTION = "false"
 
 # Handle client-side routing
 [[redirects]]
