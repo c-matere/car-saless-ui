@@ -1,16 +1,17 @@
 [build]
-  command = "npm install && npm run build"
+  command = "npm install --include=dev && npm install -g vite && npm run build"
   publish = "dist"
   functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "20"
   NPM_VERSION = "10.2.4"
-  NODE_ENV = "production"
+  NODE_ENV = "development"  # Set to development to ensure devDependencies are installed
   NPM_FLAGS = "--legacy-peer-deps"
   VITE = "true"  # This helps Vite detect it's in a build environment
   CI = "false"   # Disable CI to prevent any CI-specific behavior
   NODE_OPTIONS = "--max_old_space_size=4096"  # Increase memory limit for build
+  NPM_CONFIG_PRODUCTION = "false"  # Ensure devDependencies are installed
 
 # Handle client-side routing
 [[redirects]]
