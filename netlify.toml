@@ -1,5 +1,5 @@
 [build]
-  command = "npm install -g vite && npm install && npm run build"
+  command = "npm install && npm install vite@latest && npm run build"
   publish = "dist"
   functions = "netlify/functions"
 
@@ -9,6 +9,7 @@
   NODE_ENV = "production"
   NPM_FLAGS = "--legacy-peer-deps"
   VITE = "true"  # This helps Vite detect it's in a build environment
+  CI = "false"   # Disable CI to prevent any CI-specific behavior
 
 # Handle client-side routing
 [[redirects]]
