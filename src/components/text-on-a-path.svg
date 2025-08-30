@@ -1,0 +1,4 @@
+<svg width="211" height="67" viewBox="0 0 211 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0H211V67H0V0Z" fill="none"/>
+  <text x="50%" y="50%" text-anchor="middle" fill="white" font-family="Arial" font-size="16">Text on path</text>
+</svg>
