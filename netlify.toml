@@ -2,19 +2,15 @@
   command = "npm install && npm run build"
   publish = "dist"
   functions = "netlify/functions"
-  environment = { NODE_VERSION = "20", NPM_VERSION = "10.2.4" }
 
 [build.environment]
+  NODE_VERSION = "20"
+  NPM_VERSION = "10.2.4"
   NODE_ENV = "production"
   NPM_FLAGS = "--legacy-peer-deps"
   VITE = "true"  # This helps Vite detect it's in a build environment
   CI = "false"   # Disable CI to prevent any CI-specific behavior
   NODE_OPTIONS = "--max_old_space_size=4096"  # Increase memory limit for build
-
-# Disable the Next.js plugin since we're using Vite
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-  enabled = false
 
 # Handle client-side routing
 [[redirects]]
