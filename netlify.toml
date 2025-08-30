@@ -1,5 +1,5 @@
 [build]
-  command = "npm install && npm install vite@latest && npm run build"
+  command = "npm install && npx vite build"
   publish = "dist"
   functions = "netlify/functions"
 
@@ -10,6 +10,7 @@
   NPM_FLAGS = "--legacy-peer-deps"
   VITE = "true"  # This helps Vite detect it's in a build environment
   CI = "false"   # Disable CI to prevent any CI-specific behavior
+  NODE_OPTIONS = "--max_old_space_size=4096"  # Increase memory limit for build
 
 # Handle client-side routing
 [[redirects]]
