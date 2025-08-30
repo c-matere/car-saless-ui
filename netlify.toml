@@ -1,13 +1,13 @@
-# Disable all plugins
+# Disable all plugins by providing empty inputs
 [[plugins]]
   package = "@netlify/plugin-sitemap"
   [plugins.inputs]
-    enabled = false
+    # Empty inputs should prevent the plugin from running
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
   [plugins.inputs]
-    enabled = false
+    # Empty inputs should prevent the plugin from running
 
 [build]
   command = "npm install && npm run build"
