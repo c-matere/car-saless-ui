@@ -1,18 +1,9 @@
-# Disable all plugins by providing empty inputs
-[[plugins]]
-  package = "@netlify/plugin-sitemap"
-  [plugins.inputs]
-    # Empty inputs should prevent the plugin from running
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-  [plugins.inputs]
-    # Empty inputs should prevent the plugin from running
-
 [build]
   command = "npm install && npm run build"
   publish = "dist"
   functions = "netlify/functions"
+  # Explicitly disable all plugins
+  plugins = []
 
 [build.environment]
   NODE_VERSION = "20"
