@@ -20,7 +20,5 @@
   port = 3000
   publish = "dist"
 
-# Disable the Next.js plugin since we're using Vite
-[plugins]
-  [plugins.enable]
-    enabled = false
+# No plugins needed for Vite
+# Remove any automatic Next.js plugin if added by Netlify UI
